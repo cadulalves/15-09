@@ -1,0 +1,86 @@
+nome_aluno = input('Digite o nome do aluno: ')
+nota1 = float(input('Digite a primeira nota: '))
+nota2 = float(input('Digite a segunda nota: '))
+nota3 = float(input('Digite a terceira nota: '))
+
+media = (nota1 + nota2 + nota3) / 3
+
+if media >= 7.0:
+    status = 'Aprovado'
+elif media >= 5.0 and media < 7.0:
+    status = 'Em Recuperação'
+else:
+    status = 'Reprovado'
+
+print(f'\nNome do Aluno: {nome_aluno}')
+print(f'Média: {media:.2f}')
+print(f'Status: {status}')
+##################################################
+nome_motorista = input("Digite o nome do motorista: ")
+
+quilometros_percorridos = float(input("Digite a quantidade de quilômetros percorridos: "))
+
+litros_gastos = float(input("Digite a quantidade de litros de combustível gastos: "))
+
+
+if litros_gastos > 0:
+    consumo_medio = quilometros_percorridos / litros_gastos
+else:
+    consumo_medio = 0
+
+
+if consumo_medio >= 15:
+    classificacao = "Econômico"
+elif consumo_medio >= 10 and consumo_medio < 15:
+    classificacao = "Regular"
+else:
+    classificacao = "Alto consumo"
+
+print(f"\nNome do Motorista: {nome_motorista}")
+print(f"Quilômetros Percorridos: {quilometros_percorridos:.2f} km")
+print(f"Litros Gastos: {litros_gastos:.2f} L")
+print(f"Consumo Médio: {consumo_medio:.2f} km/L")
+print(f"Classificação: {classificacao}")
+###################################################
+nome = input("Digite o nome da pessoa: ")
+
+peso = float(input("Digite o peso em kg: "))
+altura = float(input("Digite a altura em metros: "))
+
+if altura > 0:
+    imc = peso / (altura ** 2)
+else:
+    imc = 0
+
+if imc < 18.5:
+    classificacao = "Abaixo do peso"
+elif 18.5 <= imc <= 24.9:
+    classificacao = "Peso normal"
+elif 25 <= imc <= 29.9:
+    classificacao = "Sobrepeso"
+else:
+    classificacao = "Obesidade"
+
+print(f"\nNome: {nome}")
+print(f"IMC: {imc:.2f}")
+print(f"Classificação: {classificacao}")
+##############################################
+nome_motorista = input("Digite o nome do motorista: ")
+velocidade = float(input("Digite a velocidade registrada em km/h: "))
+limite_velocidade = 80
+if velocidade <= limite_velocidade:
+    classificacao = "Dentro do limite"
+elif velocidade > limite_velocidade and velocidade <= 100:
+    classificacao = "Acima do limite (leve)"
+else:
+    classificacao = "Acima do limite (grave)"
+print(f"\nNome do Motorista: {nome_motorista}")
+print(f"Velocidade Registrada: {velocidade:.2f} km/h")
+print(f"Classificação: {classificacao}")
+##############################################
+def somar_numeros(num1, num2):
+    return num1 + num2
+numero1 = float(input("Digite o primeiro número: "))
+numero2 = float(input("Digite o segundo número: "))
+resultado = somar_numeros(numero1, numero2)
+print(f"A soma de {numero1} e {numero2} é: {resultado}")
