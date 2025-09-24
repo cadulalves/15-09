@@ -1,0 +1,53 @@
+legal_terms = {
+    "contrato": "Um acordo legalmente vinculativo entre duas ou mais partes, que cria obrigações mútuas e exigíveis por lei.",
+    "litígio": "Uma disputa ou controvérsia legal entre duas ou mais partes, que é levada a tribunal para resolução.",
+    "procuração": "Um documento legal que autoriza uma pessoa a agir em nome de outra em assuntos legais ou financeiros.",
+    "jurisprudência": "O corpo de decisões judiciais que servem como precedentes para casos futuros.",
+    "ação judicial": "O processo de levar uma disputa a tribunal para ser resolvida legalmente."
+}
+
+# Perguntas Frequentes (FAQs) jurídicas
+legal_faqs = {
+    "como agendar uma consulta": "Para agendar uma consulta, por favor, ligue para o nosso escritório no número (XX) XXXX-XXXX ou visite a secção de agendamento no nosso website.",
+    "quais são os seus honorários": "Os nossos honorários variam dependendo da complexidade do caso. Por favor, agende uma consulta inicial para discutirmos os detalhes.",
+    "em que áreas atuam": "Atuamos em direito civil, direito da família, direito do trabalho e direito empresarial.",
+    "preciso de um advogado": "Se precisa de um advogado, podemos ajudá-lo a entender a sua situação e as suas opções legais. Por favor, descreva brevemente o seu problema."
+}
+
+def process_input(user_input):
+    user_input_lower = user_input.lower()
+
+    # Consulta de termos jurídicos
+    for term, definition in legal_terms.items():
+        if re.search(r'\b' + re.escape(term) + r'\b', user_input_lower):
+            return f"Definição de {term.capitalize()}: {definition}"
+
+    # Respostas a FAQs
+    for question, answer in legal_faqs.items():
+        if question in user_input_lower:
+            return answer
+
+    # Agendamento de consultas (placeholder)
+    if "agendar consulta" in user_input_lower or "marcar consulta" in user_input_lower:
+        return "Para agendar uma consulta, por favor, ligue para o nosso escritório no número (XX) XXXX-XXXX ou visite a secção de agendamento no nosso website."
+
+    # Saudação e despedida
+    if "olá" in user_input_lower or "oi" in user_input_lower:
+        return "Olá! Como posso ajudar o seu consultório jurídico hoje?"
+    elif "adeus" in user_input_lower or "tchau" in user_input_lower:
+        return "Até breve!"
+    else:
+        return "Desculpe, não entendi. Pode reformular a sua pergunta ou perguntar sobre um termo jurídico?"
+
+def main():
+    print("Bem-vindo ao Chatbot Jurídico! Digite 'adeus' para sair.")
+    while True:
+        user_input = input("Você: ")
+        if user_input.lower() in ['adeus', 'tchau']:
+            print("Chatbot: Até breve!")
+            break
+        response = process_input(user_input)
+        print(f"Chatbot: {response}")
+
+if __name__ == "__main__":
+    main()
